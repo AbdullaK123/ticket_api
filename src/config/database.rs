@@ -10,11 +10,11 @@ pub async fn create_pool() -> Result<PgPool> {
 
     // config the connection pool
     let pool = 
-    
+
         PgPoolOptions::new()
             .max_connections(10)
             .min_connections(1)
-            .acquire_timeout(Duration::from_secs(5))
+            .acquire_timeout(Duration::from_secs(10))
             .idle_timeout(Duration::from_secs(600))
             .max_lifetime(Duration::from_secs(1800))
             .connect(&db_url)
